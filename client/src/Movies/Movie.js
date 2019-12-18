@@ -1,11 +1,19 @@
 import React, { useState, useEffect } from 'react';
+import {
+  useLocation
+} from "react-router-dom";
 import axios from 'axios';
+
+
 
 const Movie = (props) => {
   const [movie, setMovie] = useState();
- 
+  let location = useLocation();
+
+  location = location.pathname.substring(location.pathname.lastIndexOf('/') + 1)
+
   useEffect(() => {
-    const id = 1;
+    const id = location;
     // change ^^^ that line and grab the id from the URL
     // You will NEED to add a dependency array to this effect hook
 
